@@ -1,6 +1,12 @@
-import Header from '@/components/Header'
+import { SiteHeader as Header } from '@/components/site-header'
 
-export default function CarDetails({ params }: { params: { id: string } }) {
+export default async function CarDetails({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> 
+}) {
+  const { id } = await params
+  
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -20,7 +26,7 @@ export default function CarDetails({ params }: { params: { id: string } }) {
 
             {/* Car Info */}
             <div className="mb-8">
-              <h1 className="text-3xl font-bold mb-2">2023 Tesla Model Y</h1>
+              <h1 className="text-3xl font-bold mb-2">Equipment {id}</h1>
               <div className="flex items-center mb-4">
                 <span className="text-yellow-400 mr-2">★★★★★</span>
                 <span className="text-gray-600">4.9 (15 trips)</span>
@@ -154,19 +160,23 @@ export default function CarDetails({ params }: { params: { id: string } }) {
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="trip-start" className="block text-sm font-medium text-gray-700 mb-1">
                       Trip start
                     </label>
                     <input
+                      id="trip-start"
+                      name="tripStart"
                       type="date"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="trip-end" className="block text-sm font-medium text-gray-700 mb-1">
                       Trip end
                     </label>
                     <input
+                      id="trip-end"
+                      name="tripEnd"
                       type="date"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md"
                     />

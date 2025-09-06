@@ -1,5 +1,10 @@
-import Header from '@/components/Header'
+import { SiteHeader as Header } from '@/components/site-header'
 import Link from 'next/link'
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
 
 export default function AskScoovio() {
   const faqs = [
@@ -143,44 +148,48 @@ export default function AskScoovio() {
               <h3 className="text-lg font-semibold mb-4">Send us a message</h3>
               <form className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                     Subject
-                  </label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-turo-blue focus:border-turo-blue">
-                    <option value="">Select a topic</option>
-                    <option value="booking">Booking Issue</option>
-                    <option value="payment">Payment Problem</option>
-                    <option value="equipment">Equipment Issue</option>
-                    <option value="partner">Partner Inquiry</option>
-                    <option value="other">Other</option>
-                  </select>
+                  </Label>
+                  <Select>
+                    <SelectTrigger id="subject" className="w-full">
+                      <SelectValue placeholder="Select a topic" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="booking">Booking Issue</SelectItem>
+                      <SelectItem value="payment">Payment Problem</SelectItem>
+                      <SelectItem value="equipment">Equipment Issue</SelectItem>
+                      <SelectItem value="partner">Partner Inquiry</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Your Email
-                  </label>
-                  <input
+                  </Label>
+                  <Input
+                    id="email"
                     type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-turo-blue focus:border-turo-blue"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <Label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message
-                  </label>
-                  <textarea
+                  </Label>
+                  <Textarea
+                    id="message"
                     rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-turo-blue focus:border-turo-blue"
                     placeholder="Describe your issue or question..."
                   />
                 </div>
-                <button
+                <Button
                   type="submit"
-                  className="w-full bg-turo-blue text-white py-2 px-4 rounded-md hover:bg-blue-700 font-semibold"
+                  className="w-full"
                 >
                   Send Message
-                </button>
+                </Button>
               </form>
             </div>
 

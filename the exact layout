@@ -1,0 +1,139 @@
+This is exactly what I need.
+
+├─ Home
+├─ Search
+├─ Renters
+│  ├─ Profile
+│  ├─ Trips
+│  │  ├─ Booked
+│  │  └─ History
+│  ├─ Favorites
+│  └─ Inbox
+│     └─ Messages
+├─ Partners
+│  ├─ Profile
+│  ├─ Trips
+│  │  ├─ Booked
+│  │  └─ History
+│  ├─ Inbox
+│  │  └─ Messages
+│  ├─ Equipment
+│  │  ├─ Listings
+│  │  ├─ Claims
+│  │  └─ Settings
+│  └─ Business
+│     ├─ Earnings
+│     ├─ Performance
+│     ├─ Ratings & Reviews
+│     ├─ Tax Information
+│     ├─ Transaction History
+│     ├─ Referral Commissions
+│     │  ├─ Overview
+│     │  ├─ Per-Listing Rules
+│     │  └─ Rule History
+│     ├─ Referral Assets
+│     │  ├─ Codes & Links
+│     │  ├─ QR Generator
+│     │  └─ Hotel Placements
+│     ├─ Payouts
+│     │  ├─ Pending
+│     │  ├─ In Batch
+│     │  └─ Paid
+│     ├─ Background Checks
+│     │  ├─ Pending
+│     │  ├─ Passed
+│     │  └─ Failed
+│     └─ Verification
+│        ├─ Identity
+│        ├─ Driver’s License
+│        └─ Insurance
+├─ Referrers
+│  ├─ Dashboard
+│  ├─ Referrals
+│  │  ├─ Bookings
+│  │  └─ History
+│  ├─ Payouts
+│  │  ├─ Pending
+│  │  ├─ In Batch
+│  │  └─ Paid
+│  ├─ Assets
+│  ├─ Settings
+│  └─ Inbox
+│     └─ Messages
+└─ Ask Scoovio
+   ├─ How It Works
+   ├─ Gift Cards
+   └─ Contact Support
+
+Landing Site (public)
+
+Hero → Footer layout
+
+Hero Section
+
+Bold headline (one-liner value prop)
+
+Sub-headline (clarifies what Scoovio is)
+
+Call-to-action buttons (Search Now / Become a Partner)
+
+Striking background visual (motion, gradient, or lifestyle photo)
+
+How It Works (3 steps)
+
+Step 1: Search & Book
+
+Step 2: Partner confirms
+
+Step 3: Ride & Return
+
+Clean icons or illustrations
+
+Gallery / Showcase
+
+High-impact photos of scooters, strollers, renters in action
+
+Optional video loop background
+
+Grid or carousel with captions
+
+Community Highlights
+
+Blog snippets, events, questions from the dashboard community
+
+Shows it’s not just a booking app but a living network
+
+Testimonials
+
+2–3 quotes from renters
+
+2–3 quotes from partners
+
+Star ratings, faces, credibility
+
+Why Scoovio? (Value Props)
+
+Trust & safety
+
+Easy payouts
+
+Concierge referral system
+
+Coverage in major hotel zones
+
+Call to Action (again)
+
+Buttons: “Search Rentals” / “Become a Partner”
+
+Secondary CTA: “Refer & Earn”
+
+Footer
+
+Links: About, Gift Cards, Support, Terms, Privacy
+
+Social media icons
+
+Small branding tagline
+
+
+using shadcn ui componants only do you understand ????? 

@@ -1,143 +1,159 @@
-# Scoovio - Car Sharing Platform
+# 🌟 Scoovio - Premium Equipment Rental Platform
 
-A complete car sharing platform built with Next.js, TypeScript, and Tailwind CSS.
+> **A luxury, elderly-friendly equipment rental marketplace connecting Partners and Renters with seamless booking experiences.**
 
-## Features
+[![Next.js](https://img.shields.io/badge/Next.js-15.5-black)](https://nextjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC)](https://tailwindcss.com/) [![shadcn/ui](https://img.shields.io/badge/shadcn/ui-latest-black)](https://ui.shadcn.com/)
 
-### Public Pages
-- **Homepage** - Hero section with search functionality, featured cars, how it works
-- **Browse Cars** - Advanced filtering, car listings with detailed information
-- **Car Details** - Individual car pages with photos, features, booking widget
-- **How It Works** - Step-by-step guide for both guests and hosts
-- **Become a Host** - Hosting information, earnings calculator, benefits
+## 📋 Table of Contents
 
-### Key Components
-- Responsive design that works on all devices
-- Search and filtering functionality
-- Interactive booking forms
-- Host earnings calculator
-- Modern UI with Scoovio brand colors and styling
-
-## Tech Stack
-
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Heroicons (via SVG)
-- **Deployment**: Ready for Vercel, Netlify, or any hosting platform
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd scoovio
-```
-
-2. Install dependencies
-```bash
-npm install
-```
-
-3. Run the development server
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router pages
-│   ├── page.tsx           # Homepage
-│   ├── browse/            # Browse cars page
-│   ├── cars/[id]/         # Individual car details
-│   ├── how-it-works/      # How it works page
-│   ├── become-host/       # Become a host page
-│   ├── layout.tsx         # Root layout
-│   └── globals.css        # Global styles
-└── components/            # Reusable components
-    └── Header.tsx         # Navigation header
-```
-
-## Pages Included
-
-### ✅ Public Pages (Complete)
-- [x] Homepage with hero section and featured cars
-- [x] Browse cars with filters and search
-- [x] Individual car detail pages
-- [x] How it works information page  
-- [x] Become a host landing page
-- [x] Login page with social auth options
-- [x] Signup page with complete registration
-- [x] Support page with help center
-
-### 🚧 Additional Pages (Coming Soon)
-- Login/Signup pages
-- User dashboard
-- Host dashboard
-- Booking flow
-- Payment processing
-
-## Features Implemented
-
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **Modern UI**: Clean, professional design inspired by Turo
-- **Interactive Components**: Search forms, filters, booking widgets
-- **Dynamic Routing**: Individual car pages with URL parameters
-- **SEO Ready**: Proper meta tags and semantic HTML
-
-## Customization
-
-### Colors
-The project uses Scoovio brand colors defined in `tailwind.config.js`:
-- `turo-blue`: #149BEE (primary brand color)
-- `turo-dark`: #121212 (dark text)
-- `turo-gray`: #767676 (secondary text)
-
-### Adding New Pages
-1. Create a new folder in `src/app/`
-2. Add a `page.tsx` file
-3. Import and use the `Header` component
-4. Update navigation links in `Header.tsx`
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is for educational purposes only. Turo is a trademark of Turo Inc.
-
-## Next Steps
-
-To extend this clone with backend functionality:
-1. Add a database (PostgreSQL, MongoDB)
-2. Implement user authentication
-3. Add booking and payment processing
-4. Create host and guest dashboards
-5. Add real-time messaging
-6. Implement search with location services
+- [🎯 Project Overview](#-project-overview)
+- [✨ Key Features](#-key-features)
+- [🏗️ Architecture & Tech Stack](#️-architecture--tech-stack)
+- [🚀 Quick Start](#-quick-start)
+- [📁 Project Structure](#-project-structure)
+- [🔧 Environment Setup](#-environment-setup)
 
 ---
 
-Built with ❤️ using Next.js and Tailwind CSS
+## 🎯 Project Overview
+
+Scoovio is a **premium equipment rental platform** designed specifically with **elderly accessibility** in mind. The platform aims to connect equipment Partners (hosts) with Renters through an intuitive, mobile-first interface featuring large touch targets, clear navigation, and seamless booking experiences.
+
+### **Target Audience**
+-   **Primary**: Elderly users requiring mobility equipment (wheelchairs, scooters, etc.)
+-   **Secondary**: Caregivers and family members booking on behalf of others
+-   **Partners**: Equipment rental businesses and individual hosts
+
+### **Core Value Proposition**
+-   **Accessible Design**: Large buttons, clear text, simple navigation.
+-   **Premium Experience**: A luxury UI/UX with seamless interactions.
+-   **AI-Powered Support**: Plans for 24/7 assistance through an AI assistant.
+
+---
+
+## ✨ Key Features
+
+-   **Public-Facing Pages**: A mobile-first landing page, equipment search, and informational pages.
+-   **Unified Dashboard**: An Airbnb-style layout planned for role-based navigation (Renter, Partner).
+-   **Advanced Search**: Functionality for date-based availability and filtering.
+-   **AI Assistant**: A planned feature for 24/7 AI-powered support and booking assistance.
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+This project is built with a modern, component-driven architecture.
+
+### **Core Technologies**
+-   **Framework**: **Next.js 15** (App Router)
+-   **Language**: **TypeScript**
+-   **Styling**: **Tailwind CSS**
+-   **Component Library**: **shadcn/ui** built on top of Radix UI headless components.
+-   **Icons**: **Lucide React**
+-   **Tables / Data Grids**: **TanStack React Table**
+-   **Charts / Visualization**: **Recharts**
+-   **Drag & Drop**: **DND Kit**
+-   **Schema Validation**: **Zod**
+-   **Git Hooks**: **Husky**
+
+### **Key Design Patterns**
+-   **Mobile-First Responsive Design**
+-   **Component-Driven Development**
+-   **Directory Structure by Feature**
+
+---
+
+## 🚀 Quick Start
+
+### **Prerequisites**
+-   Node.js 18.0 or higher
+-   npm or your preferred package manager
+-   Git
+
+### **Installation**
+
+1.  **Clone the repository**
+    ```bash
+    git clone <your-repository-url>
+    cd <repository-name>
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables**
+    ```bash
+    cp .env.example .env.local
+    ```
+    *Note: No critical environment variables are required to run the frontend locally based on the current setup.*
+
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Open your browser** to `http://localhost:3000`.
+
+### **Available Development Commands**
+```bash
+# Start the development server
+npm run dev
+
+# Create a production-ready build
+npm run build
+
+# Start the production server
+npm run start
+
+# Check for build errors without creating an output
+npm run check
+
+# Run TypeScript type-checking
+npm run type-check
+```
+
+---
+
+## 📁 Project Structure
+
+The project follows a feature-based structure within the Next.js App Router.
+
+```
+c:\Users\relay\Downloads\lmao\
+├── src\
+│   ├── app\
+│   │   ├── api\
+│   │   ├── ask-scoovio\
+│   │   ├── browse\
+│   │   ├── cars\[id]\
+│   │   ├── dashboard\
+│   │   ├── equipment\[id]\n│   │   ├── login\
+│   │   ├── signup\
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components\
+│   │   ├── custom\
+│   │   ├── registry\
+│   │   └── ui\
+│   ├── hooks\
+│   └── lib\
+├── .env.example
+├── next.config.js
+├── package.json
+├── tailwind.config.js
+└── tsconfig.json
+```
+
+---
+
+## 🔧 Environment Setup
+
+While not required for local development, the project is configured to use the following environment variables for full functionality (e.g., loading images from external sources). Create a `.env.local` file in the root directory to add them.
+
+```bash
+# Example for Next/Image domains
+# No API keys are needed for the current setup.
+```

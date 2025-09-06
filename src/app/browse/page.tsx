@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import { SiteHeader as Header } from '@/components/site-header'
 import Link from 'next/link'
 
 export default function BrowseCars() {
@@ -29,6 +29,7 @@ export default function BrowseCars() {
                 <input
                   type="text"
                   placeholder="Enter city or zip code"
+                  title="Enter your preferred location for car rental"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -41,10 +42,12 @@ export default function BrowseCars() {
                 <div className="space-y-2">
                   <input
                     type="date"
+                    title="Select your pickup date"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   />
                   <input
                     type="date"
+                    title="Select your drop-off date"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   />
                 </div>
@@ -60,6 +63,7 @@ export default function BrowseCars() {
                     type="range"
                     min="20"
                     max="500"
+                    title="Adjust the maximum price per day"
                     className="w-full"
                   />
                   <div className="flex justify-between text-sm text-gray-600">
@@ -107,7 +111,7 @@ export default function BrowseCars() {
             <div className="flex justify-between items-center mb-6">
               <p className="text-gray-600">Showing 240 cars</p>
               <div className="flex items-center space-x-4">
-                <select className="px-3 py-2 border border-gray-300 rounded-md">
+                <select title="Sort cars by your preferred criteria" className="px-3 py-2 border border-gray-300 rounded-md">
                   <option>Sort by: Relevance</option>
                   <option>Price: Low to High</option>
                   <option>Price: High to Low</option>
@@ -125,7 +129,7 @@ export default function BrowseCars() {
                     <div className="h-48 bg-gray-300 rounded-t-lg relative">
                       {/* Placeholder for car image */}
                       <div className="absolute top-3 right-3">
-                        <button className="bg-white rounded-full p-2 shadow hover:bg-gray-50">
+                        <button className="bg-white rounded-full p-2 shadow hover:bg-gray-50" title="Add to favorites">
                           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                           </svg>
@@ -164,7 +168,10 @@ export default function BrowseCars() {
 
             {/* Load More */}
             <div className="text-center mt-8">
-              <button className="bg-turo-blue text-white px-8 py-3 rounded-md hover:bg-blue-700">
+              <button
+                title="Load additional cars to the list"
+                className="bg-turo-blue text-white px-8 py-3 rounded-md hover:bg-blue-700"
+              >
                 Load more cars
               </button>
             </div>

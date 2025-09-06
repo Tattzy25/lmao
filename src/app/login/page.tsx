@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import { SiteHeader as Header } from '@/components/site-header'
 import Link from 'next/link'
 
 export default function Login() {

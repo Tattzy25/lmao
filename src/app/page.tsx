@@ -1,10 +1,41 @@
-import Header from '@/components/Header'
-import Link from 'next/link'
+'use client';
+
+import Link from 'next/link';
+import { Button } from '@/components/registry/button';
+import { Card, CardContent, CardHeader, CardFooter } from '@/components/registry/card';
+import { Input } from '@/components/registry/input';
+import { Label } from '@/components/registry/label';
+import { Badge } from '@/components/registry/badge';
+import { Separator } from '@/components/registry/separator';
+import { Search, Star, Users, Shield, Award, CheckCircle, ArrowRight, MapPin, Calendar, Clock } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { SiteHeader } from '@/components/custom/site-header';
 
 export default function Home() {
+  const router = useRouter()
+  const [searchData, setSearchData] = useState({
+    location: '',
+    startDate: '',
+    endDate: ''
+  })
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Create URL with search parameters
+    const params = new URLSearchParams()
+    if (searchData.location) params.append('location', searchData.location)
+    if (searchData.startDate) params.append('startDate', searchData.startDate)
+    if (searchData.endDate) params.append('endDate', searchData.endDate)
+
+    // Redirect to dashboard search with parameters
+    router.push(`/dashboard/search?${params.toString()}`)
+  }
+
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <SiteHeader />
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -40,7 +71,7 @@ export default function Home() {
             {/* Quick Action Buttons - Mobile First */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
               <Link
-                href="/renters/search"
+                href="/search"
                 className="bg-gradient-to-r from-turo-blue to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold text-lg md:text-xl shadow-md"
               >
                 🔍 Find Equipment Now
@@ -80,44 +111,53 @@ export default function Home() {
                 <p className="text-gray-600">🏆 Luxury mobility • � Instant delivery • 🛡️ White-glove service</p>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+              <form onSubmit={handleSearch} className="grid grid-cols-1 lg:grid-cols-5 gap-6">
                 <div className="lg:col-span-2">
-                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
+                  <Label htmlFor="location" className="block text-base md:text-lg font-bold text-gray-700 mb-3">
                     🎯 Select Your Destination
-                  </label>
-                  <input
+                  </Label>
+                  <Input
+                    id="location"
                     type="text"
+                    value={searchData.location}
+                    onChange={(e) => setSearchData({...searchData, location: e.target.value})}
                     placeholder="Disneyland, Universal Studios, Disney World..."
                     className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg placeholder-gray-400"
                   />
                 </div>
                 <div>
-                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
+                  <Label htmlFor="start-date" className="block text-base md:text-lg font-bold text-gray-700 mb-3">
                     📅 Start Date
-                  </label>
-                  <input
+                  </Label>
+                  <Input
+                    id="start-date"
                     type="date"
+                    value={searchData.startDate}
+                    onChange={(e) => setSearchData({...searchData, startDate: e.target.value})}
                     className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg"
                   />
                 </div>
                 <div>
-                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
+                  <Label htmlFor="end-date" className="block text-base md:text-lg font-bold text-gray-700 mb-3">
                     📅 End Date
-                  </label>
-                  <input
+                  </Label>
+                  <Input
+                    id="end-date"
                     type="date"
+                    value={searchData.endDate}
+                    onChange={(e) => setSearchData({...searchData, endDate: e.target.value})}
                     className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg"
                   />
                 </div>
                 <div className="flex items-end">
-                  <Link
-                    href="/renters/search"
+                  <Button
+                    type="submit"
                     className="w-full bg-gradient-to-r from-turo-blue to-purple-600 text-white py-5 px-8 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold text-base md:text-lg text-center"
                   >
-                    🎪 Explore Premium
-                  </Link>
+                    🔍 Search Mobility Equipment
+                  </Button>
                 </div>
-              </div>
+              </form>
               
               {/* Popular Destinations Quick Links */}
               <div className="mt-8 pt-6 border-t border-gray-100">
@@ -256,154 +296,163 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Use Cases Gallery */}
+      {/* How It Works */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-              Perfect for Every Adventure
+              How It Works
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Whether you're planning a family vacation, dealing with temporary mobility issues, or just want to explore comfortably - we've got you covered
+              Get premium mobility equipment delivered to your destination in 3 simple steps
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-            {/* Theme Parks */}
-            <div className="order-2 lg:order-1">
-              <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-1 rounded-2xl">
-                <div className="bg-white rounded-2xl p-8">
-                  <div className="text-4xl mb-4">🎢</div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">Theme Parks & Attractions</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                    Make the most of your Disney, Universal, Six Flags, or local theme park visit. Our equipment helps you enjoy every ride, show, and experience without the exhaustion.
-                  </p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Experience every attraction in comfort
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Skip long rental lines at the park
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      More energy for rides and entertainment
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      VIP-level convenience
-                    </li>
-                  </ul>
-                  <div className="bg-purple-100 text-purple-800 px-4 py-2 rounded-lg text-center font-bold">
-                    Premium theme park experiences
-                  </div>
-                </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Step 1 */}
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                1
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Search & Book</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Choose your destination and dates, then select from our premium collection of mobility scooters and baby strollers available at 200+ locations.
+              </p>
+              <div className="mt-6">
+                <Search className="w-12 h-12 text-turo-blue mx-auto mb-4" />
               </div>
             </div>
-            <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">🏰</div>
-                <div className="bg-gradient-to-br from-pink-400 to-red-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">🎡</div>
+
+            {/* Step 2 */}
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-purple-500 to-pink-600 w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                2
               </div>
-              <div className="space-y-4 mt-8">
-                <div className="bg-gradient-to-br from-green-400 to-blue-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">🎠</div>
-                <div className="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">🎢</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Partner Confirms</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Our trusted local partners prepare your equipment and coordinate delivery timing to match your arrival at the destination.
+              </p>
+              <div className="mt-6">
+                <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-green-500 to-teal-600 w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                3
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ride & Return</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Enjoy your premium mobility experience! Simply return the equipment to the designated location when you're done.
+              </p>
+              <div className="mt-6">
+                <ArrowRight className="w-12 h-12 text-purple-500 mx-auto mb-4" />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-            {/* City Exploration */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="bg-gradient-to-br from-indigo-400 to-purple-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">🏙️</div>
-                <div className="bg-gradient-to-br from-teal-400 to-blue-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">🌉</div>
+          <div className="text-center">
+            <Button className="bg-gradient-to-r from-turo-blue to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+              Start Your Search Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery / Showcase */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Premium Mobility Equipment
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              High-impact photos of mobility scooters and baby strollers in action at top destinations
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* Showcase images with captions */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
+              <div className="h-64 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-white text-6xl">
+                🛴
               </div>
-              <div className="space-y-4 mt-8">
-                <div className="bg-gradient-to-br from-orange-400 to-pink-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">🏛️</div>
-                <div className="bg-gradient-to-br from-purple-400 to-indigo-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">🎰</div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Mobility Scooters</h3>
+                <p className="text-gray-600">Luxury scooters at Disneyland Resort</p>
               </div>
             </div>
-            <div>
-              <div className="bg-gradient-to-br from-teal-500 to-blue-500 p-1 rounded-2xl">
-                <div className="bg-white rounded-2xl p-8">
-                  <div className="text-4xl mb-4">🌆</div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">City Exploration & Tourism</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                    Explore Las Vegas Strip, NYC attractions, San Francisco hills, or any major city destination. Cover more ground and see more sights with our comfortable mobility solutions.
-                  </p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Experience premium city exploration
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Executive comfort for all ages
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Navigate crowds and terrain effortlessly
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Luxury storage for shopping and belongings
-                    </li>
-                  </ul>
-                  <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold">
-                    Luxury city exploration redefined
-                  </div>
-                </div>
+
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
+              <div className="h-64 bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center text-white text-6xl">
+                👶
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Baby Strollers</h3>
+                <p className="text-gray-600">All-terrain strollers at Universal Studios</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
+              <div className="h-64 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white text-6xl">
+                🏃‍♀️
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Active Renters</h3>
+                <p className="text-gray-600">Exploring Las Vegas Strip with ease</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Medical & Recovery */}
-            <div className="order-2 lg:order-1">
-              <div className="bg-gradient-to-br from-green-500 to-teal-500 p-1 rounded-2xl">
-                <div className="bg-white rounded-2xl p-8">
-                  <div className="text-4xl mb-4">🏥</div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">Medical & Recovery Support</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                    Temporary injury, surgery recovery, or chronic conditions shouldn't stop you from enjoying life. Our medical-grade equipment helps you maintain independence and mobility.
-                  </p>
-                  <ul className="space-y-3 mb-8">
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Doctor-recommended equipment
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Insurance may cover rental costs
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      Flexible rental periods
-                    </li>
-                    <li className="flex items-center text-gray-700">
-                      <span className="text-green-500 mr-3">✓</span>
-                      24/7 emergency support
-                    </li>
-                  </ul>
-                  <div className="bg-purple-100 text-purple-800 px-4 py-2 rounded-lg text-center font-bold">
-                    Your independence matters
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="bg-gradient-to-br from-red-400 to-pink-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">❤️</div>
-                <div className="bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">🦽</div>
-              </div>
-              <div className="space-y-4 mt-8">
-                <div className="bg-gradient-to-br from-green-400 to-teal-500 rounded-xl h-32 flex items-center justify-center text-white text-4xl">⚕️</div>
-                <div className="bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl h-48 flex items-center justify-center text-white text-6xl">🏥</div>
-              </div>
-            </div>
+      {/* Community Highlights */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+              Community Highlights
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Join our thriving community of renters and partners sharing experiences and tips
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Blog snippets */}
+            <Card className="p-6">
+              <CardHeader>
+                <h3 className="text-xl font-bold text-gray-900">Top 10 Disney Tips</h3>
+                <p className="text-turo-blue">By Sarah Johnson</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">Essential tips for making the most of your Disney vacation with mobility assistance...</p>
+                <Badge variant="secondary">Blog</Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardHeader>
+                <h3 className="text-xl font-bold text-gray-900">Universal Studios Guide</h3>
+                <p className="text-turo-blue">By Mike Chen</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">Complete guide to navigating Universal Studios with comfort and convenience...</p>
+                <Badge variant="secondary">Events</Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6">
+              <CardHeader>
+                <h3 className="text-xl font-bold text-gray-900">Partner Success Story</h3>
+                <p className="text-turo-blue">By Lisa Rodriguez</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-4">How I built a successful mobility equipment rental business...</p>
+                <Badge variant="secondary">Community</Badge>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

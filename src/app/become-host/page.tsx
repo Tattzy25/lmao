@@ -1,5 +1,7 @@
-import Header from '@/components/Header'
+import { SiteHeader as Header } from '@/components/site-header'
 import Link from 'next/link'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Label } from '@/components/ui/label'
 
 export default function BecomeHost() {
   return (
@@ -47,31 +49,39 @@ export default function BecomeHost() {
               <div>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Label htmlFor="car-make" className="block text-sm font-medium text-gray-700 mb-2">
                       What's your car?
-                    </label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-md">
-                      <option>Select make</option>
-                      <option>Toyota</option>
-                      <option>Honda</option>
-                      <option>Ford</option>
-                      <option>Tesla</option>
-                      <option>BMW</option>
-                    </select>
+                    </Label>
+                    <Select>
+                      <SelectTrigger id="car-make" className="w-full px-4 py-3 border border-gray-300 rounded-md">
+                        <SelectValue placeholder="Select make" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="toyota">Toyota</SelectItem>
+                        <SelectItem value="honda">Honda</SelectItem>
+                        <SelectItem value="ford">Ford</SelectItem>
+                        <SelectItem value="tesla">Tesla</SelectItem>
+                        <SelectItem value="bmw">BMW</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Label htmlFor="car-year" className="block text-sm font-medium text-gray-700 mb-2">
                       Year
-                    </label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-md">
-                      <option>Select year</option>
-                      <option>2024</option>
-                      <option>2023</option>
-                      <option>2022</option>
-                      <option>2021</option>
-                      <option>2020</option>
-                    </select>
+                    </Label>
+                    <Select>
+                      <SelectTrigger id="car-year" className="w-full px-4 py-3 border border-gray-300 rounded-md">
+                        <SelectValue placeholder="Select year" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="2024">2024</SelectItem>
+                        <SelectItem value="2023">2023</SelectItem>
+                        <SelectItem value="2022">2022</SelectItem>
+                        <SelectItem value="2021">2021</SelectItem>
+                        <SelectItem value="2020">2020</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   
                   <div>
