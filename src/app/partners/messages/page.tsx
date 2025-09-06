@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import MessagingInterface from '@/components/messaging/MessagingInterface';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export default function PartnerMessagesPage() {
   // In a real app, this would come from authentication

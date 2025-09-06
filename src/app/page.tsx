@@ -11,17 +11,17 @@ export default function Home() {
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="text-center">
             {/* Trust Badge */}
-            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-8">
-              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center bg-green-100 text-green-800 px-6 py-3 rounded-full text-base md:text-lg font-semibold mb-8 shadow-sm">
+              <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               ⭐ Trusted by 50,000+ happy customers
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
               <span className="text-gray-900">Experience</span>
               <br />
               <span className="bg-gradient-to-r from-turo-blue to-purple-600 bg-clip-text text-transparent">
@@ -31,28 +31,45 @@ export default function Home() {
               <span className="text-gray-900">Without Limits</span>
             </h1>
 
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-gray-600 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl mb-10 max-w-4xl mx-auto text-gray-700 leading-relaxed px-4">
               <strong className="text-gray-900">Premium mobility solutions delivered anywhere.</strong> From Disneyland to Las Vegas, Disney World to Universal Studios - we bring luxury comfort to your adventures. 
+              <br className="hidden sm:block" />
               <span className="text-turo-blue font-semibold">Because your experience matters more than walking.</span>
             </p>
 
+            {/* Quick Action Buttons - Mobile First */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
+              <Link
+                href="/renters/search"
+                className="bg-gradient-to-r from-turo-blue to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold text-lg md:text-xl shadow-md"
+              >
+                🔍 Find Equipment Now
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="border-2 border-turo-blue text-turo-blue px-8 py-4 rounded-xl hover:bg-turo-blue hover:text-white transition-all duration-200 font-bold text-lg md:text-xl"
+              >
+                ❓ How It Works
+              </Link>
+            </div>
+
             {/* Social Proof Numbers */}
-            <div className="flex flex-wrap justify-center gap-8 mb-12">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-turo-blue">50K+</div>
-                <div className="text-sm text-gray-600">Premium Experiences</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-3xl mx-auto">
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl md:text-3xl font-bold text-turo-blue">50K+</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">Premium Experiences</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-turo-blue">4.9⭐</div>
-                <div className="text-sm text-gray-600">Luxury Rating</div>
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl md:text-3xl font-bold text-turo-blue">4.9⭐</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">Luxury Rating</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-turo-blue">200+</div>
-                <div className="text-sm text-gray-600">Elite Destinations</div>
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl md:text-3xl font-bold text-turo-blue">200+</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">Elite Destinations</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-turo-blue">24/7</div>
-                <div className="text-sm text-gray-600">Concierge Support</div>
+              <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-2xl md:text-3xl font-bold text-turo-blue">24/7</div>
+                <div className="text-sm md:text-base text-gray-600 font-medium">Concierge Support</div>
               </div>
             </div>
             
@@ -63,39 +80,57 @@ export default function Home() {
                 <p className="text-gray-600">🏆 Luxury mobility • � Instant delivery • 🛡️ White-glove service</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                <div className="lg:col-span-2">
+                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
                     🎯 Select Your Destination
                   </label>
                   <input
                     type="text"
-                    placeholder="Disneyland • Universal Studios • Disney World • Las Vegas Strip • Hollywood • Orlando • Miami..."
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-lg"
+                    placeholder="Disneyland, Universal Studios, Disney World..."
+                    className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg placeholder-gray-400"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    📅 Experience Start
+                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
+                    📅 Start Date
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-lg"
+                    className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">
-                    📅 Experience End
+                  <label className="block text-base md:text-lg font-bold text-gray-700 mb-3">
+                    📅 End Date
                   </label>
                   <input
                     type="date"
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-lg"
+                    className="w-full px-6 py-5 border-2 border-gray-200 rounded-xl text-gray-900 focus:border-turo-blue focus:ring-0 text-base md:text-lg"
                   />
                 </div>
                 <div className="flex items-end">
-                  <button className="w-full bg-gradient-to-r from-turo-blue to-purple-600 text-white py-4 px-8 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold text-lg">
+                  <Link
+                    href="/renters/search"
+                    className="w-full bg-gradient-to-r from-turo-blue to-purple-600 text-white py-5 px-8 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200 font-bold text-base md:text-lg text-center"
+                  >
                     🎪 Explore Premium
-                  </button>
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Popular Destinations Quick Links */}
+              <div className="mt-8 pt-6 border-t border-gray-100">
+                <p className="text-center text-gray-600 text-base font-medium mb-4">Popular destinations:</p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {['Disneyland', 'Universal Studios', 'Disney World', 'Las Vegas Strip', 'Orlando'].map((destination) => (
+                    <button
+                      key={destination}
+                      className="px-4 py-2 bg-gray-100 hover:bg-turo-blue hover:text-white text-gray-700 rounded-lg transition-colors text-sm md:text-base font-medium"
+                    >
+                      {destination}
+                    </button>
+                  ))}
                 </div>
               </div>
               

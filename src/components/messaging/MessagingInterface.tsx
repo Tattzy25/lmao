@@ -176,22 +176,22 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl h-[600px] flex overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-xl h-[700px] md:h-[600px] flex overflow-hidden">
       {/* Conversations List */}
-      <div className="w-1/3 border-r border-gray-200 flex flex-col">
-        <div className="p-4 border-b border-gray-200 bg-gray-50">
-          <h3 className="text-lg font-bold text-gray-900">Messages</h3>
-          <p className="text-sm text-gray-600">
+      <div className="w-full md:w-1/3 border-r border-gray-200 flex flex-col">
+        <div className="p-6 border-b border-gray-200 bg-gray-50">
+          <h3 className="text-xl md:text-lg font-bold text-gray-900">Messages</h3>
+          <p className="text-base md:text-sm text-gray-600">
             {userType === 'partner' ? 'Customer inquiries' : 'Equipment discussions'}
           </p>
         </div>
         
         <div className="flex-1 overflow-y-auto">
           {conversations.length === 0 ? (
-            <div className="p-6 text-center">
-              <div className="text-4xl mb-4">💬</div>
-              <p className="text-gray-500">No conversations yet</p>
-              <p className="text-sm text-gray-400 mt-2">
+            <div className="p-8 text-center">
+              <div className="text-6xl mb-6">💬</div>
+              <p className="text-gray-500 text-lg">No conversations yet</p>
+              <p className="text-base text-gray-400 mt-3">
                 {userType === 'partner' 
                   ? 'Customers will message you about equipment rentals'
                   : 'Start browsing equipment to begin conversations'
@@ -199,7 +199,7 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
               </p>
               <Link
                 href={userType === 'partner' ? '/partners/equipment/manage' : '/renters/search'}
-                className="inline-block mt-4 text-blue-500 hover:text-blue-700 font-medium"
+                className="inline-block mt-6 text-blue-500 hover:text-blue-700 font-medium text-lg px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
               >
                 {userType === 'partner' ? 'Manage Equipment' : 'Browse Equipment'}
               </Link>
@@ -211,32 +211,32 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
                 <div
                   key={conversation.id}
                   onClick={() => setSelectedConversation(conversation)}
-                  className={`p-4 cursor-pointer border-b border-gray-100 hover:bg-gray-50 transition-colors ${
+                  className={`p-6 cursor-pointer border-b border-gray-100 hover:bg-gray-50 transition-colors ${
                     selectedConversation?.id === conversation.id ? 'bg-blue-50 border-blue-200' : ''
                   }`}
                 >
-                  <div className="flex items-start space-x-3">
-                    <div className="text-2xl">{otherParticipant?.avatar || '👤'}</div>
+                  <div className="flex items-start space-x-4">
+                    <div className="text-3xl">{otherParticipant?.avatar || '👤'}</div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="text-sm font-semibold text-gray-900 truncate">
+                        <p className="text-base font-semibold text-gray-900 truncate">
                           {otherParticipant?.name || 'Unknown User'}
                         </p>
                         {conversation.unreadCount > 0 && (
-                          <span className="bg-red-500 text-white text-xs rounded-full px-2 py-1 min-w-[20px] text-center">
+                          <span className="bg-red-500 text-white text-sm rounded-full px-3 py-1 min-w-[24px] text-center font-medium">
                             {conversation.unreadCount}
                           </span>
                         )}
                       </div>
                       {conversation.equipmentName && (
-                        <p className="text-xs text-blue-600 font-medium mb-1">
+                        <p className="text-sm text-blue-600 font-medium mb-2">
                           {conversation.equipmentName}
                         </p>
                       )}
-                      <p className="text-sm text-gray-600 truncate">
+                      <p className="text-base text-gray-600 truncate">
                         {conversation.lastMessage}
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-sm text-gray-400 mt-2">
                         {formatTime(conversation.lastMessageTime)}
                       </p>
                     </div>
@@ -272,7 +272,7 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-6 space-y-6">
               {messages.map((message) => {
                 const isOwnMessage = message.senderId === userId;
                 return (
@@ -281,15 +281,15 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
                     className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                      className={`max-w-xs lg:max-w-md px-6 py-4 rounded-lg ${
                         isOwnMessage
                           ? 'bg-blue-500 text-white'
                           : 'bg-gray-100 text-gray-900'
                       }`}
                     >
-                      <p className="text-sm">{message.message}</p>
+                      <p className="text-base leading-relaxed">{message.message}</p>
                       <p
-                        className={`text-xs mt-1 ${
+                        className={`text-sm mt-2 ${
                           isOwnMessage ? 'text-blue-100' : 'text-gray-500'
                         }`}
                       >
@@ -303,23 +303,23 @@ export default function MessagingInterface({ userId, userType, userName }: Messa
             </div>
 
             {/* Message Input */}
-            <div className="p-4 border-t border-gray-200">
-              <div className="flex space-x-2">
+            <div className="p-6 border-t border-gray-200">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="text"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                   placeholder="Type your message..."
-                  className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="flex-1 border-2 border-gray-300 rounded-lg px-6 py-4 text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   disabled={sending}
                 />
                 <button
                   onClick={sendMessage}
                   disabled={sending || !newMessage.trim()}
-                  className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold text-base min-w-[100px]"
                 >
-                  {sending ? '...' : 'Send'}
+                  {sending ? '...' : '📤 Send'}
                 </button>
               </div>
             </div>

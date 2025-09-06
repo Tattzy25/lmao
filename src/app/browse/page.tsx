@@ -1,7 +1,7 @@
 import Header from '@/components/Header'
 import Link from 'next/link'
 
-export default function BrowseEquipment() {
+export default function BrowseCars() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -9,8 +9,8 @@ export default function BrowseEquipment() {
       {/* Page Header */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-bold mb-4">Browse Equipment</h1>
-          <p className="text-gray-600">Find the perfect mobility equipment for your destination</p>
+          <h1 className="text-3xl font-bold mb-4">Browse cars</h1>
+          <p className="text-gray-600">Find the perfect car for your next adventure</p>
         </div>
       </div>
 
@@ -101,11 +101,11 @@ export default function BrowseEquipment() {
             </div>
           </div>
 
-          {/* Equipment Grid */}
+          {/* Cars Grid */}
           <div className="lg:w-3/4">
             {/* Sort and View Options */}
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-600">Showing 240 mobility equipment items</p>
+              <p className="text-gray-600">Showing 240 cars</p>
               <div className="flex items-center space-x-4">
                 <select className="px-3 py-2 border border-gray-300 rounded-md">
                   <option>Sort by: Relevance</option>
@@ -117,13 +117,13 @@ export default function BrowseEquipment() {
               </div>
             </div>
 
-            {/* Equipment Grid */}
+            {/* Cars Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {Array.from({length: 12}).map((_, index) => (
-                <Link key={index} href={`/equipment/${index + 1}`}>
+                <Link key={index} href={`/cars/${index + 1}`}>
                   <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
                     <div className="h-48 bg-gray-300 rounded-t-lg relative">
-                      {/* Placeholder for equipment image */}
+                      {/* Placeholder for car image */}
                       <div className="absolute top-3 right-3">
                         <button className="bg-white rounded-full p-2 shadow hover:bg-gray-50">
                           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@ export default function BrowseEquipment() {
             {/* Load More */}
             <div className="text-center mt-8">
               <button className="bg-turo-blue text-white px-8 py-3 rounded-md hover:bg-blue-700">
-                Load more equipment
+                Load more cars
               </button>
             </div>
           </div>

@@ -251,9 +251,9 @@ export default function RenterSearch() {
                             </span>
                           </div>
                         </div>
-                        <div className="flex space-x-3">
-                          <button className="text-turo-blue hover:text-blue-700 font-medium">
-                            View Details
+                        <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                          <button className="flex-1 text-turo-blue hover:text-blue-700 font-medium py-3 px-4 border border-turo-blue rounded-lg hover:bg-blue-50 transition-colors">
+                            📋 View Details
                           </button>
                           <QuickMessageButton
                             partnerId={item.partnerId}
@@ -261,8 +261,8 @@ export default function RenterSearch() {
                             equipmentName={`${item.model} - ${item.type}`}
                             renterId="renter-1"
                           />
-                          <button className="bg-turo-blue text-white px-6 py-2 rounded-md hover:bg-blue-700 font-semibold">
-                            Book Now
+                          <button className="flex-1 bg-turo-blue text-white py-3 px-4 rounded-lg hover:bg-blue-700 font-semibold transition-colors">
+                            🎪 Book Now
                           </button>
                         </div>
                       </div>
