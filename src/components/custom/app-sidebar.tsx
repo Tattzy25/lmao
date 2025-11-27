@@ -23,11 +23,11 @@ import {
   Zap,
 } from "lucide-react"
 
-import { NavDocuments } from "@/components/nav-documents"
-import { NavMain } from "@/components/nav-main"
-import { NavRoleBased } from "@/components/nav-role-based"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavDocuments } from "@/components/custom/nav-documents"
+import { NavMain } from "@/components/custom/nav-main"
+import { NavRoleBased } from "@/components/custom/nav-role-based"
+import { NavSecondary } from "@/components/custom/nav-secondary"
+import { NavUser } from "@/components/custom/nav-user"
 import {
   Sidebar,
   SidebarContent,

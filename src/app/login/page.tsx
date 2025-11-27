@@ -1,4 +1,6 @@
-import { SiteHeader as Header } from '@/components/site-header'
+'use client'
+
+import { SiteHeader as Header } from '@/components/custom/site-header'
 import Link from 'next/link'
 
 export default function Login() {

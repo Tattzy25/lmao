@@ -8,13 +8,13 @@ export default function FloatingActionMenu() {
 
   const menuItems = [
     {
-      href: '/renters/search',
+      href: '/browse',
       icon: '🔍',
       label: 'Find Equipment',
       color: 'bg-blue-500 hover:bg-blue-600'
     },
     {
-      href: '/renters/messages',
+      href: '/support',
       icon: '💬',
       label: 'Messages',
       color: 'bg-purple-500 hover:bg-purple-600'
@@ -55,14 +55,10 @@ export default function FloatingActionMenu() {
               className={`${item.color} text-white p-4 rounded-full shadow-lg transform transition-all duration-200 hover:scale-110 flex items-center min-w-[60px] justify-center`}
               style={{ animationDelay: `${index * 50}ms` }}
               onClick={() => setIsOpen(false)}
-              legacyBehavior>
+            >
               <span className="text-2xl">{item.icon}</span>
               {/* Label - shown on hover for desktop */}
-              <span className="hidden md:inline ml-3 font-medium text-sm whitespace-nowrap">
-                {item.label}
-              </span>
-              {/* Label - always visible on mobile when open */}
-              <span className="md:hidden ml-3 font-medium text-sm whitespace-nowrap">
+              <span className="ml-3 font-medium text-sm whitespace-nowrap">
                 {item.label}
               </span>
             </Link>

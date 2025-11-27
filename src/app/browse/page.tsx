@@ -1,7 +1,24 @@
-import { SiteHeader as Header } from '@/components/site-header'
+'use client'
+
+import { SiteHeader as Header } from '@/components/custom/site-header'
 import Link from 'next/link'
 
-export default function BrowseCars() {
+const equipmentItems = [
+  { id: 1, name: 'Pride Victory 10', type: 'Mobility Scooter', location: 'Disneyland, CA', price: 35, rating: 4.9, reviews: 127, icon: '🛴', features: '25 mile range • LED lights' },
+  { id: 2, name: 'BOB Revolution Flex', type: 'Baby Stroller', location: 'Universal Studios, CA', price: 25, rating: 4.8, reviews: 89, icon: '👶', features: 'All-terrain • Jogger' },
+  { id: 3, name: 'Drive Medical Scout', type: 'Mobility Scooter', location: 'Las Vegas, NV', price: 45, rating: 5.0, reviews: 156, icon: '🛵', features: 'Heavy duty • Long battery' },
+  { id: 4, name: 'UPPAbaby VISTA', type: 'Baby Stroller', location: 'Disney World, FL', price: 30, rating: 4.9, reviews: 112, icon: '🍼', features: 'Luxury • Expandable' },
+  { id: 5, name: 'Quickie QRi', type: 'Wheelchair', location: 'San Diego, CA', price: 20, rating: 4.7, reviews: 78, icon: '♿', features: 'Ultra-light • Foldable' },
+  { id: 6, name: 'Golden Buzzaround', type: 'Electric Scooter', location: 'Orlando, FL', price: 40, rating: 4.8, reviews: 134, icon: '⚡', features: 'Compact • Travel-ready' },
+  { id: 7, name: 'City Mini GT2', type: 'Double Stroller', location: 'Phoenix, AZ', price: 35, rating: 4.9, reviews: 95, icon: '👯', features: 'Side-by-side • All-terrain' },
+  { id: 8, name: 'Invacare Pronto', type: 'Power Wheelchair', location: 'Las Vegas, NV', price: 55, rating: 4.6, reviews: 67, icon: '🦽', features: 'Power lift • Comfortable' },
+  { id: 9, name: 'Baby Jogger Summit', type: 'Jogging Stroller', location: 'San Francisco, CA', price: 28, rating: 4.8, reviews: 103, icon: '🏃', features: 'Three wheels • Smooth ride' },
+  { id: 10, name: 'Pride Go-Go Elite', type: 'Travel Scooter', location: 'Anaheim, CA', price: 38, rating: 4.9, reviews: 145, icon: '✈️', features: 'Airline approved • Lightweight' },
+  { id: 11, name: 'Thule Urban Glide', type: 'Baby Stroller', location: 'Orlando, FL', price: 32, rating: 4.7, reviews: 88, icon: '👶', features: 'Jogging • Large wheels' },
+  { id: 12, name: 'Karma Ergo Lite', type: 'Wheelchair', location: 'Las Vegas, NV', price: 22, rating: 4.8, reviews: 72, icon: '♿', features: 'Ergonomic • Lightweight' },
+]
+
+export default function BrowseEquipment() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -9,8 +26,8 @@ export default function BrowseCars() {
       {/* Page Header */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-bold mb-4">Browse cars</h1>
-          <p className="text-gray-600">Find the perfect car for your next adventure</p>
+          <h1 className="text-3xl font-bold mb-4">Browse Mobility Equipment</h1>
+          <p className="text-gray-600">Find the perfect mobility scooter, baby stroller, or wheelchair for your destination</p>
         </div>
       </div>
 
@@ -24,12 +41,12 @@ export default function BrowseCars() {
               {/* Location Filter */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Location
+                  Destination
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter city or zip code"
-                  title="Enter your preferred location for car rental"
+                  placeholder="Disneyland, Universal Studios..."
+                  title="Enter your destination or theme park"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -37,7 +54,7 @@ export default function BrowseCars() {
               {/* Date Range */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Trip dates
+                  Rental dates
                 </label>
                 <div className="space-y-2">
                   <input
@@ -47,7 +64,7 @@ export default function BrowseCars() {
                   />
                   <input
                     type="date"
-                    title="Select your drop-off date"
+                    title="Select your return date"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                   />
                 </div>
@@ -61,25 +78,25 @@ export default function BrowseCars() {
                 <div className="space-y-2">
                   <input
                     type="range"
-                    min="20"
-                    max="500"
+                    min="15"
+                    max="100"
                     title="Adjust the maximum price per day"
                     className="w-full"
                   />
                   <div className="flex justify-between text-sm text-gray-600">
-                    <span>$20</span>
-                    <span>$500+</span>
+                    <span>$15</span>
+                    <span>$100+</span>
                   </div>
                 </div>
               </div>
 
-              {/* Car Type */}
+              {/* Equipment Type */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Car type
+                  Equipment type
                 </label>
                 <div className="space-y-2">
-                  {['Convertible', 'Coupe', 'Hatchback', 'Minivan', 'Pickup', 'Sedan', 'SUV', 'Wagon'].map((type) => (
+                  {['🛴 Mobility Scooter', '👶 Baby Stroller', '♿ Wheelchair', '⚡ Electric Scooter', '👯 Double Stroller', '🦽 Power Wheelchair'].map((type) => (
                     <label key={type} className="flex items-center">
                       <input type="checkbox" className="mr-2" />
                       <span className="text-sm">{type}</span>
@@ -94,7 +111,7 @@ export default function BrowseCars() {
                   Features
                 </label>
                 <div className="space-y-2">
-                  {['All-wheel drive', 'Android Auto', 'Apple CarPlay', 'Backup camera', 'Bluetooth', 'GPS', 'Heated seats', 'Pet friendly'].map((feature) => (
+                  {['Foldable', 'Lightweight', 'All-terrain', 'Long battery', 'Delivery included', 'Insurance included'].map((feature) => (
                     <label key={feature} className="flex items-center">
                       <input type="checkbox" className="mr-2" />
                       <span className="text-sm">{feature}</span>
@@ -105,13 +122,13 @@ export default function BrowseCars() {
             </div>
           </div>
 
-          {/* Cars Grid */}
+          {/* Equipment Grid */}
           <div className="lg:w-3/4">
             {/* Sort and View Options */}
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-600">Showing 240 cars</p>
+              <p className="text-gray-600">Showing {equipmentItems.length} items</p>
               <div className="flex items-center space-x-4">
-                <select title="Sort cars by your preferred criteria" className="px-3 py-2 border border-gray-300 rounded-md">
+                <select title="Sort equipment by your preferred criteria" className="px-3 py-2 border border-gray-300 rounded-md">
                   <option>Sort by: Relevance</option>
                   <option>Price: Low to High</option>
                   <option>Price: High to Low</option>
@@ -121,13 +138,13 @@ export default function BrowseCars() {
               </div>
             </div>
 
-            {/* Cars Grid */}
+            {/* Equipment Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {Array.from({length: 12}).map((_, index) => (
-                <Link key={index} href={`/cars/${index + 1}`}>
+              {equipmentItems.map((item) => (
+                <Link key={item.id} href={`/equipment/${item.id}`}>
                   <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer">
-                    <div className="h-48 bg-gray-300 rounded-t-lg relative">
-                      {/* Placeholder for car image */}
+                    <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 rounded-t-lg relative flex items-center justify-center">
+                      <span className="text-6xl">{item.icon}</span>
                       <div className="absolute top-3 right-3">
                         <button className="bg-white rounded-full p-2 shadow hover:bg-gray-50" title="Add to favorites">
                           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,28 +153,29 @@ export default function BrowseCars() {
                         </button>
                       </div>
                       <div className="absolute bottom-3 left-3">
-                        <span className="bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">
-                          Instant
+                        <span className="bg-green-500 text-white px-2 py-1 rounded text-sm font-medium">
+                          Available
                         </span>
                       </div>
                     </div>
                     <div className="p-4">
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-semibold text-lg">2023 Tesla Model Y</h3>
+                        <h3 className="font-semibold text-lg">{item.name}</h3>
                         <div className="flex items-center">
                           <span className="text-yellow-400 mr-1">★</span>
-                          <span className="text-sm text-gray-600">4.9 (15)</span>
+                          <span className="text-sm text-gray-600">{item.rating} ({item.reviews})</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 text-sm mb-3">SUV • San Francisco, CA</p>
+                      <p className="text-turo-blue text-sm font-medium mb-1">{item.type}</p>
+                      <p className="text-gray-600 text-sm mb-2">📍 {item.location}</p>
+                      <p className="text-gray-500 text-xs mb-3">{item.features}</p>
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-2xl font-bold text-turo-blue">$85</span>
+                          <span className="text-2xl font-bold text-turo-blue">${item.price}</span>
                           <span className="text-gray-600">/day</span>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm text-gray-600">$595 total</div>
-                          <div className="text-xs text-gray-500">Dec 15-22</div>
+                          <div className="text-sm text-green-600 font-medium">Free delivery</div>
                         </div>
                       </div>
                     </div>
@@ -169,10 +187,10 @@ export default function BrowseCars() {
             {/* Load More */}
             <div className="text-center mt-8">
               <button
-                title="Load additional cars to the list"
+                title="Load additional equipment"
                 className="bg-turo-blue text-white px-8 py-3 rounded-md hover:bg-blue-700"
               >
-                Load more cars
+                Load more equipment
               </button>
             </div>
           </div>
