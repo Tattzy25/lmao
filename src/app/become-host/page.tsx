@@ -16,27 +16,32 @@ export default function BecomeHost() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Turn your car into a money-making opportunity
+                Turn your mobility equipment into income
               </h1>
               <p className="text-xl mb-8">
-                Join thousands of hosts who earn an average of $500+ per month sharing their car on Scoovio.
+                Join thousands of partners who earn an average of $500+ per month sharing their mobility scooters, strollers, and wheelchairs on Scoovio.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
-                  href="/host/signup"
+                  href="/signup"
                   className="bg-white text-green-500 px-8 py-3 rounded-md font-semibold hover:bg-gray-100 text-center"
                 >
                   Get started
                 </Link>
                 <Link 
-                  href="/carculator"
+                  href="/how-it-works"
                   className="border border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white hover:text-green-500 text-center"
                 >
                   Calculate earnings
                 </Link>
               </div>
             </div>
-            <div className="h-80 bg-white bg-opacity-20 rounded-lg"></div>
+            <div className="h-80 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-8xl mb-4">🛴👶♿</div>
+                <p className="text-white text-lg font-medium">List your equipment today</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -51,48 +56,47 @@ export default function BecomeHost() {
               <div>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="car-make" className="block text-sm font-medium text-gray-700 mb-2">
-                      What's your car?
+                    <Label htmlFor="equipment-type" className="block text-sm font-medium text-gray-700 mb-2">
+                      What equipment do you have?
                     </Label>
                     <Select>
-                      <SelectTrigger id="car-make" className="w-full px-4 py-3 border border-gray-300 rounded-md">
-                        <SelectValue placeholder="Select make" />
+                      <SelectTrigger id="equipment-type" className="w-full px-4 py-3 border border-gray-300 rounded-md">
+                        <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="toyota">Toyota</SelectItem>
-                        <SelectItem value="honda">Honda</SelectItem>
-                        <SelectItem value="ford">Ford</SelectItem>
-                        <SelectItem value="tesla">Tesla</SelectItem>
-                        <SelectItem value="bmw">BMW</SelectItem>
+                        <SelectItem value="scooter">🛴 Mobility Scooter</SelectItem>
+                        <SelectItem value="stroller">👶 Baby Stroller</SelectItem>
+                        <SelectItem value="wheelchair">♿ Wheelchair</SelectItem>
+                        <SelectItem value="double-stroller">👯 Double Stroller</SelectItem>
+                        <SelectItem value="power-wheelchair">🦽 Power Wheelchair</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   
                   <div>
-                    <Label htmlFor="car-year" className="block text-sm font-medium text-gray-700 mb-2">
-                      Year
+                    <Label htmlFor="equipment-condition" className="block text-sm font-medium text-gray-700 mb-2">
+                      Condition
                     </Label>
                     <Select>
-                      <SelectTrigger id="car-year" className="w-full px-4 py-3 border border-gray-300 rounded-md">
-                        <SelectValue placeholder="Select year" />
+                      <SelectTrigger id="equipment-condition" className="w-full px-4 py-3 border border-gray-300 rounded-md">
+                        <SelectValue placeholder="Select condition" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="2024">2024</SelectItem>
-                        <SelectItem value="2023">2023</SelectItem>
-                        <SelectItem value="2022">2022</SelectItem>
-                        <SelectItem value="2021">2021</SelectItem>
-                        <SelectItem value="2020">2020</SelectItem>
+                        <SelectItem value="new">Like New</SelectItem>
+                        <SelectItem value="excellent">Excellent</SelectItem>
+                        <SelectItem value="good">Good</SelectItem>
+                        <SelectItem value="fair">Fair</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Where is your car located?
+                      Where is your equipment located?
                     </label>
                     <input
                       type="text"
-                      placeholder="Enter your city"
+                      placeholder="Disneyland, Orlando, Las Vegas..."
                       className="w-full px-4 py-3 border border-gray-300 rounded-md"
                     />
                   </div>
@@ -102,29 +106,29 @@ export default function BecomeHost() {
               <div className="bg-green-50 rounded-lg p-6">
                 <h3 className="text-xl font-semibold mb-4">Your estimated earnings</h3>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-green-500 mb-2">$742</div>
+                  <div className="text-4xl font-bold text-green-500 mb-2">$480</div>
                   <div className="text-gray-600 mb-4">per month</div>
                   <div className="text-sm text-gray-500">
-                    Based on similar cars in your area being booked 12 days per month
+                    Based on similar equipment in your area being booked 15 days per month
                   </div>
                 </div>
                 
                 <div className="mt-6 space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span>Daily rate</span>
-                    <span>$78</span>
+                    <span>$40</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Monthly bookings</span>
-                    <span>12 days</span>
+                    <span>15 days</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Scoovio fee (25%)</span>
-                    <span>-$234</span>
+                    <span>Scoovio fee (20%)</span>
+                    <span>-$120</span>
                   </div>
                   <div className="border-t pt-2 flex justify-between font-semibold">
                     <span>Your earnings</span>
-                    <span>$742</span>
+                    <span>$480</span>
                   </div>
                 </div>
               </div>
@@ -136,14 +140,14 @@ export default function BecomeHost() {
       {/* How it Works for Hosts */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">How hosting works</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">How partnering works</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">List your car for free</h3>
+              <h3 className="text-xl font-semibold mb-4">List your equipment for free</h3>
               <p className="text-gray-600">
                 Take photos, write a description, and set your price. It takes about 15 minutes to get started.
               </p>
@@ -153,9 +157,9 @@ export default function BecomeHost() {
               <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Choose your schedule</h3>
+              <h3 className="text-xl font-semibold mb-4">Choose your availability</h3>
               <p className="text-gray-600">
-                You're in control. Choose when your car is available and approve trips that work for you.
+                You're in control. Set when your equipment is available and approve rentals that work for you.
               </p>
             </div>
             
@@ -165,7 +169,7 @@ export default function BecomeHost() {
               </div>
               <h3 className="text-xl font-semibold mb-4">Get paid</h3>
               <p className="text-gray-600">
-                Earn money while your car sits in the driveway. Get paid within 3 hours of trip completion.
+                Earn money from your equipment. Get paid within 24 hours of rental completion.
               </p>
             </div>
           </div>
@@ -175,7 +179,7 @@ export default function BecomeHost() {
       {/* Benefits */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Why host with Scoovio?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Why partner with Scoovio?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg p-6">
@@ -186,7 +190,7 @@ export default function BecomeHost() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Extra income</h3>
               <p className="text-gray-600">
-                Make money from your car when you're not using it. The average host earns $500+ per month.
+                Make money from your mobility equipment when you're not using it. Perfect for theme park locals!
               </p>
             </div>
             
