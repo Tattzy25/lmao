@@ -523,7 +523,7 @@ export default function Home() {
         
         <div className="text-center mt-12">
           <Link
-            href="/renters/search"
+            href="/browse"
             className="inline-flex items-center bg-white text-turo-blue px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             View All Equipment
@@ -576,7 +576,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/renters/search"
+                href="/browse"
                 className="bg-white text-turo-blue px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
                 🏆 Book Premium Experience
@@ -627,21 +627,21 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-bold mb-6 text-white">For Renters</h4>
               <ul className="space-y-3">
-                <li><Link href="/renters" className="text-gray-300 hover:text-white transition-colors">🛴 Mobility Scooters</Link></li>
-                <li><Link href="/renters" className="text-gray-300 hover:text-white transition-colors">👶 Baby Strollers</Link></li>
-                <li><Link href="/renters" className="text-gray-300 hover:text-white transition-colors">♿ Wheelchairs</Link></li>
-                <li><Link href="/renters/search" className="text-gray-300 hover:text-white transition-colors">🔍 Search Equipment</Link></li>
-                <li><Link href="/renters/profile" className="text-gray-300 hover:text-white transition-colors">👤 My Account</Link></li>
+                <li><Link href="/browse" className="text-gray-300 hover:text-white transition-colors">🛴 Mobility Scooters</Link></li>
+                <li><Link href="/browse" className="text-gray-300 hover:text-white transition-colors">👶 Baby Strollers</Link></li>
+                <li><Link href="/browse" className="text-gray-300 hover:text-white transition-colors">♿ Wheelchairs</Link></li>
+                <li><Link href="/browse" className="text-gray-300 hover:text-white transition-colors">🔍 Search Equipment</Link></li>
+                <li><Link href="/login" className="text-gray-300 hover:text-white transition-colors">👤 My Account</Link></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-lg font-bold mb-6 text-white">For Partners</h4>
               <ul className="space-y-3">
-                <li><Link href="/partners" className="text-gray-300 hover:text-white transition-colors">💰 Become Partner</Link></li>
-                <li><Link href="/partners/equipment/upload" className="text-gray-300 hover:text-white transition-colors">📝 List Equipment</Link></li>
-                <li><Link href="/partners/dashboard" className="text-gray-300 hover:text-white transition-colors">📊 Dashboard</Link></li>
-                <li><Link href="/partners/equipment/manage" className="text-gray-300 hover:text-white transition-colors">⚙️ Manage Listings</Link></li>
+                <li><Link href="/become-host" className="text-gray-300 hover:text-white transition-colors">💰 Become Partner</Link></li>
+                <li><Link href="/become-host" className="text-gray-300 hover:text-white transition-colors">📝 List Equipment</Link></li>
+                <li><Link href="/login" className="text-gray-300 hover:text-white transition-colors">📊 Dashboard</Link></li>
+                <li><Link href="/login" className="text-gray-300 hover:text-white transition-colors">⚙️ Manage Listings</Link></li>
                 <li><Link href="/ask-scoovio" className="text-gray-300 hover:text-white transition-colors">❓ Partner Support</Link></li>
               </ul>
             </div>

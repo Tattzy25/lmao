@@ -1,16 +1,15 @@
+'use client'
+
 import { Separator } from "@/components/ui/separator"
-import { SidebarTrigger } from "@/components/ui/sidebar"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
@@ -41,7 +40,7 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent side="right">
                 <div className="flex flex-col gap-6 py-6">
-                  <Link href="/dashboard/search" className="text-lg font-medium">
+                  <Link href="/browse" className="text-lg font-medium">
                     🔍 Find Equipment
                   </Link>
                   <Link href="/become-host" className="text-lg font-medium">
@@ -69,42 +68,42 @@ export function SiteHeader() {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <Link href="/dashboard/search" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/browse">
                     🔍 Find Equipment
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/become-host" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/become-host">
                     🏢 Partner With Us
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/how-it-works" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/how-it-works">
                     ❓ How It Works
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/support" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link href="/support">
                     💬 Get Help
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/login" legacyBehavior passHref>
+            <Link href="/login">
               <Button variant="outline">Sign In</Button>
             </Link>
-            <Link href="/signup" legacyBehavior passHref>
+            <Link href="/signup">
               <Button>Sign Up</Button>
             </Link>
           </div>

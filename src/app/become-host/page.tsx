@@ -1,4 +1,6 @@
-import { SiteHeader as Header } from '@/components/site-header'
+'use client'
+
+import { SiteHeader as Header } from '@/components/custom/site-header'
 import Link from 'next/link'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Label } from '@/components/ui/label'

@@ -1,11 +1,14 @@
-import { SiteHeader as Header } from '@/components/site-header'
+'use client'
 
-export default async function CarDetails({ 
+import { SiteHeader as Header } from '@/components/custom/site-header'
+import { use } from 'react'
+
+export default function EquipmentDetails({ 
   params 
 }: { 
   params: Promise<{ id: string }> 
 }) {
-  const { id } = await params
+  const { id } = use(params)
   
   return (
     <div className="min-h-screen bg-white">

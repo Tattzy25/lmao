@@ -1,11 +1,11 @@
-import { AppSidebar } from "@/components/app-sidebar"
-// import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-// import { DataTable } from "@/components/data-table"
-// import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
+'use client'
+
+import dynamic from 'next/dynamic'
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
-import data from "./data.json"
+// Dynamically import components that use useSidebar hook to prevent SSR issues
+const AppSidebar = dynamic(() => import("@/components/app-sidebar").then(mod => ({ default: mod.AppSidebar })), { ssr: false })
+const SiteHeader = dynamic(() => import("@/components/site-header").then(mod => ({ default: mod.SiteHeader })), { ssr: false })
 
 export default function Page() {
   return (
@@ -16,11 +16,10 @@ export default function Page() {
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              {/* <SectionCards /> */}
               <div className="px-4 lg:px-6">
-                {/* <ChartAreaInteractive /> */}
+                <h1 className="text-2xl font-bold">Dashboard</h1>
+                <p className="text-gray-600 mt-2">Welcome to your Scoovio dashboard</p>
               </div>
-              {/* <DataTable data={data} /> */}
             </div>
           </div>
         </div>
